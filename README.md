@@ -1,3 +1,3 @@
 # GameAiHW4
-Christian Silva/n
+Christian Silva,
 Alex Weisenbach
