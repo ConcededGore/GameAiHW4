@@ -85,8 +85,23 @@ public class Swarmer : MonoBehaviour {
         }
 
         // Align
-
-        // I'm sorry, I'm honestly not quite sure how the align works, I can fill this in later
+        List<Vector3> vels = new List<Vector3>();
+        Vector3 sum = new Vector3(0, 0, 0);
+        for (int i = 0; i < larva.Count; i++) {
+            vels.Add(larva[i].GetComponent<Rigidbody>().velocity);
+        }
+        for (int i = 0; i < larva.Count; i++) {
+            vels[i] = vels[i].normalized;
+        }
+        for (int i = 0; i < larva.Count; i++) {
+            sum += vels[i];
+        }
+        if (vels.Count == 0) {
+            Debug.Log("No Targets");
+        } else {
+            sum /= vels.Count;
+            AlignWithFlock(sum, -1);
+        }
 
         // Cohesion
         target = sh.GetComponent<Transform>();
@@ -184,5 +199,61 @@ public class Swarmer : MonoBehaviour {
         }
 
     }
+
+    void AlignWithFlock(Vector3 targ, int mode = 0) {
+        //Look towards target
+
+        float xDif = targ.x - transform.position.x;
+        float yDif = targ.y - transform.position.y;
+
+        float hyp = Mathf.Sqrt((xDif * xDif) + (yDif * yDif));
+
+        float targetAngle;
+        float currentAngle = transform.localEulerAngles.y;
+
+        targetAngle = Mathf.Acos(yDif / hyp);
+        targetAngle = Mathf.Rad2Deg * targetAngle;
+
+
+
+        float currentAngVel = GetComponent<Rigidbody>().angularVelocity.magnitude;
+
+        if (targ.x > transform.position.x) {
+            targetAngle = targetAngle * -1;
+        }
+
+        if (currentAngle > 180) {
+            currentAngle = -1 * (360 - currentAngle);
+        }
+
+        //Debug.Log("target angle is " + targetAngle);
+        //Debug.Log("current angle is " + currentAngle);
+
+        if (mode == 1) {
+            targetAngle = targetAngle - 180;
+        }
+
+        if (Mathf.Abs(currentAngle - targetAngle) < turnSatiationDist) {
+            GetComponent<Rigidbody>().angularVelocity = new Vector3(0,0,0);
+        }
+        else {
+            if (currentAngle < targetAngle) {
+                GetComponent<Rigidbody>().angularVelocity = new Vector3(0, currentAngVel + 15,0);
+                if (GetComponent<Rigidbody>().angularVelocity.magnitude > turnMaxSpeed) {
+                    GetComponent<Rigidbody>().angularVelocity = new Vector3(0, turnMaxSpeed,0);
+                }
+            }
+            else {
+                GetComponent<Rigidbody>().angularVelocity = new Vector3(0, currentAngVel - 15,0);
+                if (GetComponent<Rigidbody>().angularVelocity.magnitude < turnMaxSpeed) {
+                    GetComponent<Rigidbody>().angularVelocity = new Vector3(0, -1 * turnMaxSpeed,0);
+                }
+            }
+
+
+        }
+
+    }
+
 
 }
