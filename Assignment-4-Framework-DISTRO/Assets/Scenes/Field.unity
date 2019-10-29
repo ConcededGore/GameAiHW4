@@ -248,7 +248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a0851328d87b754783ee604c9504692, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  next: {fileID: 540996860}
+  next: {fileID: 0}
   head: 0
   num: 5
   Path: 0
@@ -1051,7 +1051,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a0851328d87b754783ee604c9504692, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  next: {fileID: 56715555}
+  next: {fileID: 0}
   head: 0
   num: 4
   Path: 0
@@ -1833,7 +1833,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a0851328d87b754783ee604c9504692, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  next: {fileID: 580412145}
+  next: {fileID: 0}
   head: 0
   num: 3
   Path: 0
@@ -2422,7 +2422,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a0851328d87b754783ee604c9504692, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  next: {fileID: 1765677768}
+  next: {fileID: 0}
   head: 0
   num: 1
   Path: 0
@@ -2561,7 +2561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a0851328d87b754783ee604c9504692, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  next: {fileID: 1263092804}
+  next: {fileID: 0}
   head: 0
   num: 2
   Path: 0
@@ -2609,7 +2609,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a0851328d87b754783ee604c9504692, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  next: {fileID: 1671273277}
+  next: {fileID: 0}
   head: 1
   num: 0
   Path: 0
