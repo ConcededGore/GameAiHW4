@@ -6,7 +6,7 @@ public class Swarmer : MonoBehaviour {
 
     [Header("Flocking")]
     public SwarmHead sh;
-    public float threshold = 0;
+    public float threshold = 5;
 
     private float strength = 0;
     public Transform target;
@@ -18,7 +18,7 @@ public class Swarmer : MonoBehaviour {
 
     [Header("Movement")]
     public float maxVelocity = 8.0f;
-    public float maxAcceleration = 0.2f;
+    public float maxAcceleration = 80f;
     public float maxAngularAcceleration = 0.5f;
 
     public float arriveSlowRadius = 3.0f;

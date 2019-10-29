@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 2219499390269946900}
   - component: {fileID: 2268906337186401114}
   - component: {fileID: 2187398883902480624}
-  - component: {fileID: 2237823324018270076}
   - component: {fileID: 2248597459582379554}
   - component: {fileID: 2204975585671030117}
   - component: {fileID: 2204975585671030116}
@@ -31,7 +30,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2206126685232934410}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.806335, y: -44, z: -0.9397153}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -114,35 +113,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 84
   m_CollisionDetection: 0
---- !u!114 &2237823324018270076
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2206126685232934410}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c21e7bc528b1e7b4d93b22c8cef3b897, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agent: {fileID: 0}
-  target: {fileID: 0}
-  maxPrediction: 1
-  maxAcceleration: 4
-  maxSpeed: 4
-  targetRadiusL: 2
-  slowRadiusL: 5
-  timeToTarget: 0.1
-  maxRotation: 4
-  maxAngularAcceleration: 4
-  targetRadiusA: 0.1
-  slowRadiusA: 0.5
-  wanderOffset: 5
-  wanderRadius: 1
-  wanderRate: 1
-  Path: []
-  current: 0
 --- !u!120 &2248597459582379554
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -250,8 +220,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52b02b46bcddfb94c8b965f7eadd9dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  strength: 0
-  threshold: 0
+  sh: {fileID: 0}
+  threshold: 1
   target: {fileID: 0}
   turnSatiationDist: 5
   turnSpeedTick: 15
@@ -273,6 +243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 415980f2a1c3f25408ed78b5a9193523, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  drag: 1
 --- !u!1 &2206546055172360054
 GameObject:
   m_ObjectHideFlags: 0

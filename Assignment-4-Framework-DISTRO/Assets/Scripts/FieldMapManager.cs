@@ -52,6 +52,10 @@ public class FieldMapManager : MonoBehaviour {
     public GameObject[] Path;
     public Text narrator;                   // 
 
+
+    //My stuff for HW4
+    private int mode = 0;
+
     // Use this for initialization. Create any initial NPCs here and store them in the 
     // spawnedNPCs list. You can always add/remove NPCs later on.
 
@@ -125,8 +129,21 @@ public class FieldMapManager : MonoBehaviour {
                break;
        }
        **************/
+       
+        if(Input.GetKeyDown("c"))
+        {
+            mode = 0;
+        }
+        else if(Input.GetKeyDown("p"))
+        {
+            mode = 1;
+        }
+        else if(Input.GetKeyDown("s"))
+        {
 
-        switch (currentPhase)
+        }
+
+        /*switch (currentPhase)
             {
                 case 0:
                     if (spawnedNPCs.Count > 1 && Vector3.Distance(spawnedNPCs[1].transform.position, spawnedNPCs[0].transform.position) < 12)
@@ -200,7 +217,7 @@ public class FieldMapManager : MonoBehaviour {
                         Invoke("End", 5);
                     }
                     break;
-            }
+            }*/
     }
 
 
@@ -237,6 +254,11 @@ public class FieldMapManager : MonoBehaviour {
         currentPhase = 2; // or whatever. Won't necessarily advance the phase every time
 
         //spawnedNPCs.Add(SpawnItem(spawner2, WolfPrefab, null, SpawnText2, 4));
+    }
+
+    private void BeginPresentation()
+    {
+
     }
 
 
