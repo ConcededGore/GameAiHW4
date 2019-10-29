@@ -7,7 +7,6 @@ public class LNode : MonoBehaviour {
     public bool head = false;
     public int num = 0;
     public int Path = 0;
-    public Transform t;
 
     private Vector2 pos;
     private int tailLength = 0;
