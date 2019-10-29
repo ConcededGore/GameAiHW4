@@ -217,7 +217,7 @@ GameObject:
   - component: {fileID: 56715555}
   m_Layer: 0
   m_Name: PathNode (5)
-  m_TagString: Untagged
+  m_TagString: Node
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -252,7 +252,7 @@ MonoBehaviour:
   head: 0
   num: 5
   Path: 0
-  t: {fileID: 56715554}
+  t: {fileID: 0}
 --- !u!1 &57836074
 GameObject:
   m_ObjectHideFlags: 0
@@ -509,7 +509,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pb: {fileID: 652294012}
-  pathNum: 1
+  pathNum: 0
   maxVelocity: 8
   maxAcceleration: 0.2
   maxAngularAcceleration: 0.5
@@ -972,7 +972,7 @@ GameObject:
   - component: {fileID: 540996860}
   m_Layer: 0
   m_Name: PathNode (6)
-  m_TagString: Untagged
+  m_TagString: Node
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1007,7 +1007,7 @@ MonoBehaviour:
   head: 0
   num: 6
   Path: 0
-  t: {fileID: 540996859}
+  t: {fileID: 0}
 --- !u!1 &580412143
 GameObject:
   m_ObjectHideFlags: 0
@@ -1020,7 +1020,7 @@ GameObject:
   - component: {fileID: 580412145}
   m_Layer: 0
   m_Name: PathNode (4)
-  m_TagString: Untagged
+  m_TagString: Node
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1055,7 +1055,7 @@ MonoBehaviour:
   head: 0
   num: 4
   Path: 0
-  t: {fileID: 580412144}
+  t: {fileID: 0}
 --- !u!1001 &591347547
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1251,6 +1251,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red
       objectReference: {fileID: 0}
+    - target: {fileID: 1539762189271892, guid: a4c4224164306c24e886b5cb60a7d09c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4563332300184562, guid: a4c4224164306c24e886b5cb60a7d09c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.3833528
@@ -1425,6 +1429,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1004704229356472, guid: 542da097d7789844fbc8cd10769eb879, type: 3}
+      propertyPath: m_Name
+      value: Paths
+      objectReference: {fileID: 0}
     - target: {fileID: 4316712552254560, guid: 542da097d7789844fbc8cd10769eb879, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1468,10 +1476,6 @@ PrefabInstance:
     - target: {fileID: 4316712552254560, guid: 542da097d7789844fbc8cd10769eb879, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1004704229356472, guid: 542da097d7789844fbc8cd10769eb879, type: 3}
-      propertyPath: m_Name
-      value: Paths
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 542da097d7789844fbc8cd10769eb879, type: 3}
@@ -1798,7 +1802,7 @@ GameObject:
   - component: {fileID: 1263092804}
   m_Layer: 0
   m_Name: PathNode (3)
-  m_TagString: Untagged
+  m_TagString: Node
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1833,7 +1837,7 @@ MonoBehaviour:
   head: 0
   num: 3
   Path: 0
-  t: {fileID: 1263092803}
+  t: {fileID: 0}
 --- !u!1 &1269147974
 GameObject:
   m_ObjectHideFlags: 0
@@ -2387,7 +2391,7 @@ GameObject:
   - component: {fileID: 1671273277}
   m_Layer: 0
   m_Name: PathNode (1)
-  m_TagString: Untagged
+  m_TagString: Node
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2422,7 +2426,7 @@ MonoBehaviour:
   head: 0
   num: 1
   Path: 0
-  t: {fileID: 1671273276}
+  t: {fileID: 0}
 --- !u!1 &1689871545
 GameObject:
   m_ObjectHideFlags: 0
@@ -2526,7 +2530,7 @@ GameObject:
   - component: {fileID: 1765677768}
   m_Layer: 0
   m_Name: PathNode (2)
-  m_TagString: Untagged
+  m_TagString: Node
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2561,7 +2565,7 @@ MonoBehaviour:
   head: 0
   num: 2
   Path: 0
-  t: {fileID: 1765677767}
+  t: {fileID: 0}
 --- !u!1 &1984016301
 GameObject:
   m_ObjectHideFlags: 0
@@ -2574,7 +2578,7 @@ GameObject:
   - component: {fileID: 1984016303}
   m_Layer: 0
   m_Name: PathNode
-  m_TagString: Untagged
+  m_TagString: Node
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2609,7 +2613,7 @@ MonoBehaviour:
   head: 1
   num: 0
   Path: 0
-  t: {fileID: 1984016302}
+  t: {fileID: 0}
 --- !u!1 &2068154638
 GameObject:
   m_ObjectHideFlags: 0
