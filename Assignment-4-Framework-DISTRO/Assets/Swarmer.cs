@@ -29,6 +29,12 @@ public class Swarmer : MonoBehaviour {
 
     private MovementController mc;
 
+
+    private int collisionMode = 0;
+    public int numRays = 8;
+    public float rayDist = 1;
+    public float repelForce = 2;
+    public ContactFilter2D cf2;
     // Start is called before the first frame update
     void Start() {
         linearAcceleration = new Vector3(0, 0, 0);
@@ -38,8 +44,17 @@ public class Swarmer : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
-        Flock();
+        if(Input.GetKeyDown("c"))
+        {
+            collisionMode = 0;
+        }
+        else if(Input.GetKeyDown("s"))
+        {
+            collisionMode = 1;
+        }
 
+        Flock();
+        CollisionAvoid();
         //Clamp Accelerations
         linearAcceleration = Vector3.ClampMagnitude(linearAcceleration, maxAcceleration);
 
@@ -109,6 +124,51 @@ public class Swarmer : MonoBehaviour {
         //Debug.Log(linearAcceleration + " " + linearAcceleration.magnitude + " " + Seperation);
         linearAcceleration += Seperation;
 
+    }
+
+    void CollisionAvoid()
+    {
+        if(collisionMode == 0)
+        {
+            //RaycastHit[] collectedHits = new RaycastHit[numRays];
+            for (int i = 0; i < numRays; i++)
+            {
+                float angle = (transform.localEulerAngles.y + 45 + (90 * i / numRays)) * Mathf.Deg2Rad;
+                Vector2 dir = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
+                Debug.DrawLine(transform.position, transform.position + (new Vector3(dir.x, 0, dir.y) * rayDist), new Color(1, 1, 0, 0.3f));
+                RaycastHit hit;
+                bool ifHit = Physics.Raycast(transform.position, new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle)), out hit, rayDist);
+                if(ifHit)
+                {
+                    if (Mathf.Cos(transform.localEulerAngles.y) > Vector3.Dot(transform.localEulerAngles, hit.transform.localEulerAngles))
+                    {
+                        //float angle = (transform.localEulerAngles.y - 45 + (90 * i / numRays)) * Mathf.Deg2Rad;
+                        Vector3 dir2 = new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle));
+                        linearAcceleration += -dir2 * (1 - (hit.distance / rayDist)) * repelForce;
+                    }
+                }
+            }
+        }
+        else if(collisionMode == 1)
+        {
+            for (int i = 0; i < 4 * numRays; i++)
+            {
+                float angle = (360f* ( i / numRays)) * Mathf.Deg2Rad;
+                Vector2 dir = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
+                Debug.DrawLine(transform.position, transform.position + (new Vector3(dir.x, 0, dir.y) * rayDist), new Color(1, 1, 0, 0.3f));
+                RaycastHit hit;
+                bool ifHit = Physics.Raycast(transform.position, new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle)), out hit, rayDist);
+                if (ifHit)
+                {
+                    if (Mathf.Cos(transform.localEulerAngles.y) > Vector3.Dot(transform.localEulerAngles, hit.transform.localEulerAngles))
+                    {
+                        //float angle = (transform.localEulerAngles.y - 45 + (90 * i / numRays)) * Mathf.Deg2Rad;
+                        Vector3 dir2 = new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle));
+                        linearAcceleration += -dir2 * (1 - (hit.distance / rayDist)) * repelForce;
+                    }
+                }
+            }
+        }
     }
 
     void DynamicPursueWithDynamicArrive() {
