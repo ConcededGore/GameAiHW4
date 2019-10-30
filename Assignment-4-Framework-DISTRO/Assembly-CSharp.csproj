@@ -82,6 +82,7 @@
     <Compile Include="Assets\Scripts\StoryController.cs" />
     <Compile Include="Assets\Scripts\TargetMove.cs" />
     <Compile Include="Assets\Scripts\TreeGenerator.cs" />
+    <Compile Include="Assets\Scripts\UIController.cs" />
     <Compile Include="Assets\Swarmer.cs" />
     <Compile Include="Assets\SwarmHead.cs" />
     <None Include="Assets\Framework Notes.txt" />

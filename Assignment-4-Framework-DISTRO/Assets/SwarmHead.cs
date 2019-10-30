@@ -10,6 +10,7 @@ public class SwarmHead : MonoBehaviour {
     private LNode curr;
     private List<LNode> paths = new List<LNode>();
     private bool pathStarted = false;
+    public bool needsPath = true;
 
     [Header("Movement")]
     public float maxVelocity = 8.0f;
@@ -34,12 +35,13 @@ public class SwarmHead : MonoBehaviour {
     void Start() {
         linearAcceleration = new Vector3(0, 0, 0);
         mc = GetComponent<MovementController>();
-        paths = pb.GetPaths();
+        if(needsPath)
+            paths = pb.GetPaths();
     }
 
     // Update is called once per frame
     void Update() {
-        if (!pathStarted) {
+        if (!pathStarted && needsPath) {
             if (pathNum >= paths.Count) {
                 Debug.Log("ERROR: Broodmother unable to find assigned path #" + pathNum);
             }
@@ -47,7 +49,8 @@ public class SwarmHead : MonoBehaviour {
             target = curr.GetComponentInParent<Transform>();
             pathStarted = true;
         }
-        FollowPath();
+        if(needsPath)
+            FollowPath();
 
         //Clamp Accelerations
         linearAcceleration = Vector3.ClampMagnitude(linearAcceleration, maxAcceleration);
@@ -56,7 +59,8 @@ public class SwarmHead : MonoBehaviour {
         linearAcceleration *= Time.deltaTime;
 
         //Move using the accelerations
-        mc.Move(linearAcceleration, 0);
+        if(needsPath)
+            mc.Move(linearAcceleration, 0);
     }
 
     void FollowPath() {

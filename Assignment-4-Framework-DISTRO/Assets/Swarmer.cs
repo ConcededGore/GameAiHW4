@@ -151,6 +151,7 @@ public class Swarmer : MonoBehaviour {
         }
         else if(collisionMode == 1)
         {
+            RaycastHit[] collectedHits = new RaycastHit[numRays];
             for (int i = 0; i < 4 * numRays; i++)
             {
                 float angle = (360f* ( i / numRays)) * Mathf.Deg2Rad;
@@ -160,12 +161,7 @@ public class Swarmer : MonoBehaviour {
                 bool ifHit = Physics.Raycast(transform.position, new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle)), out hit, rayDist);
                 if (ifHit)
                 {
-                    if (Mathf.Cos(transform.localEulerAngles.y) > Vector3.Dot(transform.localEulerAngles, hit.transform.localEulerAngles))
-                    {
-                        //float angle = (transform.localEulerAngles.y - 45 + (90 * i / numRays)) * Mathf.Deg2Rad;
-                        Vector3 dir2 = new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle));
-                        linearAcceleration += -dir2 * (1 - (hit.distance / rayDist)) * repelForce;
-                    }
+                    collectedHits[i] = hit;
                 }
             }
         }

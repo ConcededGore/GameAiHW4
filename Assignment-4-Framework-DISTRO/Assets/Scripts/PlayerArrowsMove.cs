@@ -5,15 +5,15 @@ using UnityEngine;
 public class PlayerArrowsMove : MonoBehaviour
 {
 
-    private Rigidbody2D rb;
+    private Rigidbody rb;
     public float speedForce;
 
     void Start() {
-        rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody>();
     }
 
     void Update() {
-        Vector2 input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        Vector3 input = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         rb.AddForce(input * speedForce);
     }
 }
